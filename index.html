@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html data-scheme="light" data-scale="large">
+<head>
+	<title>2023藝術的AI創作</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/4.0.0-beta.3/tocas.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<style>
+		body {
+            margin: 0;
+            padding: 0;
+            width: 100vw; /*設定網頁寬度（100%畫面寬度） */
+            height: 820px; /*設定網頁高度 */
+            background-image: url('res/David Teniers the Younger_The Archduke Leopold Wilhelm in his Picture Gallery in Brussels(1647-51).jpg');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+			background-color: #7F6000;
+            box-sizing: border-box;
+            position: static;
+			font-family: 'Microsoft JhengHei', sans-serif; /*微軟正黑體*/
+        }
+
+		
+		.black-bold {
+            color: #BDD7EE; /* 指定字的顏色 */
+            font-weight: bold; /* 粗體 */
+            font-size: 24px; /* 24號字 */
+			line-height: 1.2;
+        }
+		.black-bold_large {
+            color: #BDD7EE; /* 指定字的顏色 */
+            font-weight: bold; /* 粗體 */
+            font-size: 28px; /* 28號字 */
+			line-height: 1.2;
+        }
+		.black-bold_small {
+            color: #BDD7EE; /* 指定字的顏色 */
+            font-weight: bold; /* 粗體 */
+            font-size: 18px; /* 18號字 */
+        }
+		
+        .iframeA {
+			position: absolute;
+            z-index: 20;
+            top: 50%; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 50%; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .iframeA img {
+            width: 260px; /* 圖片寬度 */
+            height: 230px; /* 圖片高度 */
+        }
+			
+		/*通用的按鈕設定*/
+		
+		.fixed-button {
+			position: absolute;
+            z-index: 10;
+        }
+		
+		/*設定物件的位置*/
+		
+        .fixed-text1 {
+            top: 50px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 1050px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+        .fixed-text2 {
+            top: 350px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 1100px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+        .fixed-text3 {
+            top: 680px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 1050px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+        .fixed-button_title1 {
+            top: 50px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 335px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_title1 img {
+            width: 260px; /* 圖片寬度 */
+            height: 230px; /* 圖片高度 */
+        }
+        .fixed-button_title2 {
+            top: 210px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 370px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_title2 img {
+            width: 36.25px; /* 圖片寬度 */
+            height: 47.75px; /* 圖片高度 */
+        }
+		
+		/* PDF按鈕位置 */
+		
+        .fixed-button_paint1 {
+            top: 60px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 0px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint2 {
+            top: 228px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 14px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint3 {
+            top: 224px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 112px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint4 {
+            top: 356px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 44px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint5 {
+            top: 506px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 26px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint6 {
+            top: 716px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 20px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint7 {
+            top: 624px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 40px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint8 {
+            top: 676px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 146px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint9 {
+            top: 498px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 194px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+        .fixed-button_paint10 {
+            top: 110px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 212px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+		/* 影片按鈕位置 */
+		
+        .fixed-button_paint11 {
+            top: 256px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 242px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint12 {
+            top: 362px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 242px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint13 {
+            top: 388px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 286px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint14 {
+            top: 460px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 246px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint15 {
+            top: 334px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 330px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint16 {
+            top: 396px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 330px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint17 {
+            top: 460px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 332px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint18 {
+            top: 458px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 376px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint19 {
+            top: 334px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 538px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+        .fixed-button_paint20 {
+            top: 396px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 538px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+		/* 學習單按鈕位置 */
+		
+        .fixed-button_paint21 {
+            top: 460px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 538px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint22 {
+            top: 458px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 588px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint23 {
+            top: 106px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 624px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint24 {
+            top: 274px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 624px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint25 {
+            top: 384px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 632px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint26 {
+            top: 358px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 668px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint27 {
+            top: 476px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 636px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint28 {
+            top: 514px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 622px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint29 {
+            top: 74px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 746px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+		
+        .fixed-button_paint30 {
+            top: 230px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 720px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+		/* 其他按鈕位置 */
+		
+        .fixed-button_paint31 {
+            top: 368px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 722px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint32 {
+            top: 368px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 850px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint33 {
+            top: 440px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 742px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint34 {
+            top: 650px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 730px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint35 {
+            top: 706px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 818px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint36 {
+            top: 234px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 906px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint37 {
+            top: 374px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 910px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint38 {
+            top: 482px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 906px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+        .fixed-button_paint39 {
+            top: 620px; /* 距離畫面頂部的位置，根據需要調整百分比 */
+            left: 880px; /* 距離畫面左側的位置，根據需要調整百分比 */
+        }
+		
+    </style>
+</head>
+
+<body>
+<!--註解位
+<div class="fixed-bind fixed-bind1">
+A<br />
+</div>
+-->
+<div class="fixed-button fixed-text1 black-bold">
+明志科技大學<br />
+教師編製數位教材計畫<br />
+(VO041-3300-113)<br />
+<br />
+課程名稱：<a style="color:yellow">藝術欣賞</a><br />
+<br />
+計畫主題：<a style="color:yellow">影視×藝術×〇〇</a><br />
+<br />
+計畫主持人：<a style="color:yellow" href="https://vcd.mcut.edu.tw/p/412-1048-1606.php" target="_blank">李淑珠老師</a><br />
+</div>
+<div class="fixed-button fixed-text2 black-bold_large">
+<br />
+<a style="color:yellow" href="res/PDFs/112數位教材_0_課程說明.pdf" target="_blank">課程說明</a><br />
+<br />
+<a style="color:yellow" href="res/PDFs/112數位教材_0_學習目標.pdf" target="_blank">學習目標</a><br />
+<br />
+<a style="color:yellow" href="res/PDFs/112數位教材_0_章節大綱.pdf" target="_blank">章節大綱</a><br />
+</div>
+<div class="fixed-button fixed-text3 black-bold_small">
+本教材內容不受單元順序限制，隱藏於<br />
+左側畫作之中，請隨意點選觀賞。<br />
+</div>
+<!-- 圖片按鈕 -->
+
+<!-- 課程綱要 https://vcd.mcut.edu.tw/p/412-1048-1606.php
+<a href="summary.html" class="fixed-button fixed-button_title1">
+    <img src="res/opensummary.png">
+</a>
+
+<a href="https://vcd.mcut.edu.tw/p/412-1048-1606.php" class="fixed-button fixed-button_title2" target="_blank">
+    <img src="res/Su-ChuLi.jpg">
+</a> -->
+
+<a href="res/PDFs/112數位教材PPT_1_Mona Lisa(2014).pdf" class="fixed-button fixed-button_paint1" target="_blank">
+    <img src="res/paints/paint1.png">
+</a>
+<a href="Leading_page/video6.html" class="fixed-button fixed-button_paint2" target="_blank">
+    <img src="res/paints/paint2.png">
+</a>
+<a href="Leading_page/video1.html" class="fixed-button fixed-button_paint3" target="_blank">
+    <img src="res/paints/paint3.png">
+</a>
+<a href="res/PDFs/112數位教材PPT_2_Frida(2002).pdf" class="fixed-button fixed-button_paint4" target="_blank">
+    <img src="res/paints/paint4.png">
+</a>
+<a href="res/PDFs/112數位教材PPT_5_no.9(2014).pdf" class="fixed-button fixed-button_paint5" target="_blank">
+    <img src="res/paints/paint5.png">
+</a><!--
+<a href="res/PDFs/112數位教材PPT_7_The Untouchables(1987).pdf" class="fixed-button fixed-button_paint7" target="_blank">
+    <img src="res/paints/paint7.png">
+</a>-->
+<a href="Leading_page/video5.html" class="fixed-button fixed-button_paint6" target="_blank">
+    <img src="res/paints/paint6.png">
+</a>
+<a href="Leading_page/video9.html" class="fixed-button fixed-button_paint8" target="_blank">
+    <img src="res/paints/paint8.png">
+</a>
+<a href="Leading_page/video2.html" class="fixed-button fixed-button_paint9" target="_blank">
+    <img src="res/paints/paint9.png">
+</a>
+<a href="Leading_page/video7.html" class="fixed-button fixed-button_paint10" target="_blank">
+    <img src="res/paints/paint10.png">
+
+
+<!--
+<a href="Leading_page/video1.html" class="fixed-button fixed-button_paint11" target="_blank">
+    <img src="res/paints/paint11.png">
+</a>
+<a href="res/PDFs/112數位教材PPT_2_Frida(2002).pdf" class="fixed-button fixed-button_paint12" target="_blank">
+    <img src="res/paints/paint12.png">
+</a>
+<a href="res/PDFs/112數位教材PPT_3_Sunday in the park (1983).pdf" class="fixed-button fixed-button_paint13" target="_blank">
+    <img src="res/paints/paint13.png">
+</a>
+<a href="res/PDFs/112數位教材PPT_4_Princess Raccoon(2005).pdf" class="fixed-button fixed-button_paint14" target="_blank">
+    <img src="res/paints/paint14.png">
+</a>
+-->
+<a href="Leading_page/worksheet5.html" class="fixed-button fixed-button_paint15" target="_blank">
+    <img src="res/paints/paint15.png">
+</a>
+<a href="Leading_page/worksheet4.html" class="fixed-button fixed-button_paint16" target="_blank">
+    <img src="res/paints/paint16.png">
+</a>
+<a href="Leading_page/worksheet1.html" class="fixed-button fixed-button_paint17" target="_blank">
+    <img src="res/paints/paint17.png">
+</a>
+<a href="Leading_page/worksheet2.html" class="fixed-button fixed-button_paint18" target="_blank">
+    <img src="res/paints/paint18.png">
+</a>
+<a href="res/PDFs/112數位教材PPT_4_Princess Raccoon(2005).pdf" class="fixed-button fixed-button_paint19" target="_blank">
+    <img src="res/paints/paint19.png">
+</a>
+<a href="Leading_page/worksheet7.html" class="fixed-button fixed-button_paint20" target="_blank">
+    <img src="res/paints/paint20.png">
+
+
+<a href="Leading_page/worksheet3.html" class="fixed-button fixed-button_paint21" target="_blank">
+    <img src="res/paints/paint21.png">
+</a>
+<a href="Leading_page/worksheet6.html" class="fixed-button fixed-button_paint22" target="_blank">
+    <img src="res/paints/paint22.png">
+</a>
+<a href="Leading_page/video3.html" class="fixed-button fixed-button_paint23" target="_blank">
+    <img src="res/paints/paint23.png">
+</a>
+<!--
+<a href="worksheets4.html" class="fixed-button fixed-button_paint24" target="_blank">
+    <img src="res/paints/paint24.png">
+</a>
+<a href="worksheets5.html" class="fixed-button fixed-button_paint25" target="_blank">
+    <img src="res/paints/paint25.png">
+</a>
+<a href="worksheets6.html" class="fixed-button fixed-button_paint26" target="_blank">
+    <img src="res/paints/paint26.png">
+</a>
+<a href="worksheets7.html" class="fixed-button fixed-button_paint27" target="_blank">
+    <img src="res/paints/paint27.png">
+</a>
+<a href="worksheets8.html" class="fixed-button fixed-button_paint28" target="_blank">
+    <img src="res/paints/paint28.png">
+</a>
+-->
+<a href="" class="fixed-button fixed-button_paint29" target="_blank">
+    <img src="res/paints/paint29.png">
+<a href="" class="fixed-button fixed-button_paint30" target="_blank">
+    <img src="res/paints/paint30.png">
+
+
+<!--
+<a href="worksheets.html" class="fixed-button fixed-button_paint31" target="_blank">
+    <img src="res/paints/paint31.png">
+</a>
+-->
+<a href="Leading_page/worksheet8.html" class="fixed-button fixed-button_paint32" target="_blank">
+    <img src="res/paints/paint32.png">
+</a>
+<!--
+<a href="worksheets.html" class="fixed-button fixed-button_paint33" target="_blank">
+    <img src="res/paints/paint33.png">
+</a>
+-->
+<a href="" class="fixed-button fixed-button_paint34" target="_blank">
+    <img src="res/paints/paint34.png">
+</a>
+<a href="Leading_page/video4.html" class="fixed-button fixed-button_paint35" target="_blank">
+    <img src="res/paints/paint35.png">
+</a>
+<a href="" class="fixed-button fixed-button_paint36" target="_blank">
+    <img src="res/paints/paint36.png">
+</a>
+<a href="res/PDFs/112數位教材PPT_9_Her(2013).pdf" class="fixed-button fixed-button_paint37" target="_blank">
+    <img src="res/paints/paint37.png">
+</a>
+<a href="Leading_page/video8.html" class="fixed-button fixed-button_paint38" target="_blank">
+    <img src="res/paints/paint38.png">
+</a>
+<!--
+<a href="worksheets.html" class="fixed-button fixed-button_paint39" target="_blank">
+    <img src="res/paints/paint39.png">
+-->
+
+<script>
+</script>
+
+</body>
+
+</html>
