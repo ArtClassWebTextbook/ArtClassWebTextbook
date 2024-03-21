@@ -14,15 +14,23 @@
 		body {
             margin: 0;
             padding: 0;
-            width: 100vw; /*設定網頁寬度（100%畫面寬度） */
-            height: 820px; /*設定網頁高度 */
+			width: 1920px; 
+            height: 820px;
             background-image: url('res/David Teniers the Younger_The Archduke Leopold Wilhelm in his Picture Gallery in Brussels(1647-51).jpg');
             background-repeat: no-repeat;
             background-position: 0 0;
-			background-color: #7F6000;
+			background-color: #332515; /*#7F6000 #593E23*/
             box-sizing: border-box;
             position: static;
 			font-family: 'Microsoft JhengHei', sans-serif; /*微軟正黑體*/
+        }@media (min-width: 1920px) {
+            body {
+                width: 100vw; /*設定網頁寬度（100%畫面寬度） */
+            }
+        }@media (min-height: 820px) {
+            body {
+                height: 100hw; /*設定網頁高度（100%畫面寬度） */
+            }
         }
 
 		
