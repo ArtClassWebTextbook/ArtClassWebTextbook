@@ -2,28 +2,30 @@
 <html data-scheme="light" data-scale="large">
 <head>
 	<title>2023藝術的AI創作</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/4.0.0-beta.3/tocas.min.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<style>
 		body {
             margin: 0;
             padding: 0;
-            width: 100vw; /*設定網頁寬度（100%畫面寬度） */
-            height: 720px; /*設定網頁高度 */
+			width: 1500px; 
+            height: 720px;
             background-image: url('res/David Teniers the Younger_The Archduke Leopold Wilhelm in his Picture Gallery in Brussels(1647-51).jpg');
             background-repeat: no-repeat;
             background-position: 0 0;
-			background-color: #FFFFFF;
             box-sizing: border-box;
             position: static;
 			font-family: 'Microsoft JhengHei', sans-serif; /*微軟正黑體*/
-        }
+			transform: scale(1.65);
+			transform-origin: top left;
+			overflow-x: auto; /* 在頁面內容超出視窗寬度時新增水平捲軸 */
+			overflow-y: auto;
+		}
 		.black-bold {
             color: #A3A3CC; /* 指定字的顏色 */
             font-weight: bold; /* 粗體 */
